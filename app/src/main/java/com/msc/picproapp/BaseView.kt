@@ -1,4 +1,7 @@
 package com.msc.picproapp
 
-interface BaseView {
+interface BaseView<T> {
+
+    var presenter: T
+
 }

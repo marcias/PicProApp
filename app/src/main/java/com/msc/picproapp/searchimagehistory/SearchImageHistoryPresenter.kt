@@ -1,4 +1,4 @@
 package com.msc.picproapp.searchimagehistory
 
-interface searchImageHistoryContract {
+class SearchImageHistoryPresenter {
 }
