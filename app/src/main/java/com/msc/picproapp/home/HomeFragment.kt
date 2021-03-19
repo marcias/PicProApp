@@ -9,7 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.msc.picproapp.databinding.HomeFragmentBinding
-import com.msc.picproapp.searchimage.FavoriteImagesFragment
+import com.msc.picproapp.searchresultimage.FavoriteImagesFragment
 import com.msc.picproapp.searchimagehistory.SearchImageHistoryFragment
 
 class HomeFragment : Fragment() {

@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home_fragment">
 
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.msc.picproapp.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_searchResultImageFragment"
+            app:destination="@id/search_result_image" />
+        <action
+            android:id="@+id/action_homeFragment_to_imageDetailFragment"
+            app:destination="@id/imageDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/search_result_image"
+        android:name="com.msc.picproapp.searchresultimage.SearchResultImageFragment"
+        android:label="SearchResultImageFragment"
+        tools:layout="@layout/search_result_fragment">
+        <action
+            android:id="@+id/action_searchResultImageFragment_to_imageDetailFragment"
+            app:destination="@id/imageDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageDetailFragment"
+        android:name="com.msc.picproapp.imagedetail.ImageDetailFragment"
+        android:label="ImageDetailFragment" />
 </navigation>

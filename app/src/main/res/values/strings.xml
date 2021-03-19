@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PicPro</string>
+    <string name="search_hint"> Pesquisar por imagem</string>
 </resources>

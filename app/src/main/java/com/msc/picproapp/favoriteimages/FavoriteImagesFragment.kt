@@ -1,4 +1,4 @@
-package com.msc.picproapp.searchimage
+package com.msc.picproapp.searchresultimage
 
 import android.os.Bundle
 import android.view.LayoutInflater
