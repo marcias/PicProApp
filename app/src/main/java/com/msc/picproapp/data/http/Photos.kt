@@ -1,7 +1,6 @@
 package com.msc.picproapp.data.http
 
 import com.google.gson.annotations.SerializedName
-import retrofit2.Call
 
 data class Photos(
     @SerializedName("id")

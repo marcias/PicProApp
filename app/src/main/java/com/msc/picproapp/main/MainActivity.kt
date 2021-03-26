@@ -5,11 +5,15 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.msc.picproapp.R
+import com.msc.picproapp.data.ItemViewModel
 import com.msc.picproapp.databinding.MainAcitivityBinding
+import com.msc.picproapp.home.HomeFragment
 import kotlinx.android.synthetic.main.main_acitivity.view.*
 
 class MainActivity : AppCompatActivity(), MainContract.View {
@@ -21,8 +25,24 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         super.onCreate(savedInstanceState)
         presenter = MainPresenter(this)
         binding = MainAcitivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        presenter.start()
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        if (intent != null) {
+            if (Intent.ACTION_SEARCH == intent.action) {
+                intent.getStringExtra(SearchManager.QUERY)
+                        ?.also { query ->
+                            presenter.queryReceived(query)
+                        }
+            }
+        }
+    }
+
+    override fun setSearchView() {
         val view = binding.root
-        setContentView(view)
         setSupportActionBar(view.toolbar)
 
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
@@ -35,25 +55,11 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
             view.toolbar_search.setIconifiedByDefault(false)
         }
-        presenter.start()
     }
 
-    override fun onNewIntent(intent: Intent?) {
-        super.onNewIntent(intent)
-        if (intent != null) {
-            Log.v("MainActivity", ">>> New Intent not null")
-            if (Intent.ACTION_SEARCH == intent.action) {
-                intent.getStringExtra(SearchManager.QUERY)
-                    ?.also { query -> presenter.startSearch(query) }
-            }
-        }
+    override fun setArguments(argument: String) {
+        val viewModel: ItemViewModel by viewModels()
+        viewModel.argument(argument)
     }
 
-    override fun navigateTo(resId: Int) {
-        findNavController(R.id.nav_host_fragment).navigate(resId)
-    }
-
-    override fun setArguments() {
-        //Mandar argumentos para fragment
-    }
 }

@@ -5,11 +5,13 @@ import com.msc.picproapp.BaseView
 
 interface HomeContract {
 
-    interface View : BaseView<Presenter> {
-
-
+    interface View : BaseView<HomePresenter> {
+        fun navigateTo(resId: Int, argument: String)
+        fun setViewModelObserver()
     }
 
-    interface Presenter: BasePresenter
+    interface Presenter : BasePresenter {
+        fun argumentSet(query: String)
+    }
 
 }

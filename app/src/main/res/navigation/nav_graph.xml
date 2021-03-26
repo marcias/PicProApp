@@ -22,9 +22,10 @@
         android:name="com.msc.picproapp.searchresultimage.SearchResultImageFragment"
         android:label="SearchResultImageFragment"
         tools:layout="@layout/search_result_fragment">
-        <action
-            android:id="@+id/action_searchResultImageFragment_to_imageDetailFragment"
-            app:destination="@id/imageDetailFragment" />
+        <argument
+            android:name="searchArgument"
+            app:argType="string"
+            android:defaultValue="null" />
     </fragment>
     <fragment
         android:id="@+id/imageDetailFragment"

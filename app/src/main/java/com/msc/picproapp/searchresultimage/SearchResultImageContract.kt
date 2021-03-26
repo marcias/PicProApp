@@ -5,10 +5,14 @@ import com.msc.picproapp.BaseView
 
 interface SearchResultImageContract {
 
-    interface View : BaseView<Presenter> {
-
-
+    interface View : BaseView<SearchResultImagePresenter> {
+        fun setProgress(visible: Boolean)
+        fun showNoDataMessage()
+        fun getArgs()
     }
 
-    interface Presenter: BasePresenter
+    interface Presenter : BasePresenter {
+        fun startSearch(query: String)
+    }
+
 }

@@ -7,9 +7,6 @@ import retrofit2.http.Query
 
 interface APIService {
 
-    val url: String
-        get() = "https://api.unsplash.com/"
-
     @GET("photos")
     fun getImages(@Header("Authorization") token: String, @Query("query") query: String): Call<List<Photos>>
 }

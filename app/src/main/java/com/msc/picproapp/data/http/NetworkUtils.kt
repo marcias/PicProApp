@@ -10,7 +10,6 @@ class NetworkUtils {
             return Retrofit.Builder().baseUrl(path)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-
         }
     }
 }

@@ -5,12 +5,12 @@ import com.msc.picproapp.BaseView
 
 interface MainContract {
     interface View : BaseView<MainPresenter> {
-        fun navigateTo(resId: Int)
-        fun setArguments()
+        fun setSearchView()
+        fun setArguments(argument: String)
 
     }
 
     interface Presenter: BasePresenter {
-        fun startSearch(word: String)
+        fun queryReceived(word: String)
     }
 }
