@@ -2,7 +2,17 @@ package com.msc.picproapp.data.http
 
 import com.google.gson.annotations.SerializedName
 
+
 data class Photos(
+        @SerializedName("total")
+        var total: Int,
+        @SerializedName("total_pages")
+        var totalPages: Int,
+        @SerializedName("results")
+        var results: List<Photo>
+)
+
+data class Photo(
     @SerializedName("id")
     var id: String,
     @SerializedName("urls")

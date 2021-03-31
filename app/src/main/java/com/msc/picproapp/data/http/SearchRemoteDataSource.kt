@@ -6,9 +6,11 @@ interface SearchRemoteDataSource {
 
     interface GetSearchResultCallback {
 
-        fun onSearchResultLoaded(result: String)
+        fun onSearchResultLoaded(photosResult: Photos)
 
         fun onDataNotAvailable()
+
+        fun onFailure(t: Throwable)
 
     }
 }

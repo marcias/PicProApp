@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/search_result_image"
-        android:name="com.msc.picproapp.searchresultimage.SearchResultImageFragment"
+        android:name="com.msc.picproapp.searchresultimage.SearchResultListFragment"
         android:label="SearchResultImageFragment"
         tools:layout="@layout/search_result_fragment">
         <argument

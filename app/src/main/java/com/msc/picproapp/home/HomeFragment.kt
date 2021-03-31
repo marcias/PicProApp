@@ -1,7 +1,6 @@
 package com.msc.picproapp.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
+import com.msc.picproapp.Constants
 import com.msc.picproapp.data.ItemViewModel
 import com.msc.picproapp.databinding.HomeFragmentBinding
 import com.msc.picproapp.searchresultimage.FavoriteImagesFragment
@@ -55,7 +55,7 @@ class HomeFragment : Fragment(), HomeContract.View {
 
     override fun navigateTo(resId: Int, argument: String) {
         val result = Bundle()
-        result.putString("query_extra", argument)
+        result.putString(Constants.QUERY_EXTRA, argument)
         findNavController().navigate(resId,result)
     }
 
